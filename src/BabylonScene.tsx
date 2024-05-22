@@ -10,6 +10,7 @@ const BabylonScene: React.FC = () => {
       const engine = new Engine(canvasRef.current, true);
       const scene = new Scene(engine);
 
+      // mathmesh related code starts
       let verts = mathmesh("\\int_{a}^{b}x^2 \\,dx");
       let customMesh = new Mesh("mymathmesh", scene);
       let vertexData = new VertexData();
@@ -22,6 +23,7 @@ const BabylonScene: React.FC = () => {
       fontmaterial.backFaceCulling = false;
       fontmaterial.emissiveColor = new Color3(0, 1, 0);
       customMesh.material = fontmaterial;
+      // mathmesh related code ends
 
       const camera = new FreeCamera('camera', new Vector3(0, 5, -10), scene);
       camera.setTarget(Vector3.Zero());
